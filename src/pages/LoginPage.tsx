@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { FileText, Lock, Mail, Eye, EyeOff, User } from 'lucide-react';
 
@@ -161,6 +161,24 @@ const LoginPage: React.FC = () => {
                     className="block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-warm-gray focus:border-warm-gray"
                   />
                 </div>
+              </div>
+            )}
+
+            {!isLogin && (
+              <div className="flex items-start">
+                <input
+                  id="privacy-policy"
+                  name="privacy-policy"
+                  type="checkbox"
+                  required
+                  className="h-4 w-4 text-warm-gray focus:ring-warm-gray border-gray-300 rounded mt-1"
+                />
+                <label htmlFor="privacy-policy" className="ml-2 block text-sm text-gray-500">
+                  Соглашаюсь на обработку персональных данных и{' '}
+                  <Link to="/privacy" className="text-warm-gray hover:underline">
+                    политику конфиденциальности
+                  </Link>
+                </label>
               </div>
             )}
 
