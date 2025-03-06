@@ -1,4 +1,5 @@
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, useLocation } from 'react-router-dom';
+import { useEffect } from 'react';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import HomePage from './pages/HomePage';
@@ -14,6 +15,12 @@ import ContactPage from './pages/ContactPage';
 import SitemapPage from './pages/SitemapPage';
 
 function App() {
+  const location = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location.pathname]);
+
   return (
     <div className="flex flex-col min-h-screen">
       <Header />
